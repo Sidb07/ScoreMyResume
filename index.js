@@ -8,11 +8,11 @@ var spawn = require('child_process').spawn
 app.set('view engine', 'ejs');
 
 app.get('/', function (req, res) {
-    res.render('pages/index');
+    res.render('index');
 });
 
 app.get('/upload', function (req, res) {
-    res.render('pages/upload', {error: ''});
+    res.render('upload', {error: ''});
 });
 
 app.post('/upload', function (req, res) {
@@ -23,7 +23,7 @@ app.post('/upload', function (req, res) {
         fs.rename(oldpath, newpath, function(err) {} );
         if(newpath == 'pdffiles/') {
             console.log('No file Selected');
-            res.render('pages/upload', {error: "Please Select a File"});
+            res.render('upload', {error: "Please Select a File"});
         } 
         else {
             console.log("File Uploaded")
@@ -37,7 +37,7 @@ app.post('/upload', function (req, res) {
                     //console.log(ret);
                     var n = Number(result.slice(result.length - ret - 2, result.length - 2));
                     //console.log(n);
-                    res.render('pages/rating', {result: n, skills: result.slice(0, result.length - ret - 2)});
+                    res.render('rating', {result: n, skills: result.slice(0, result.length - ret - 2)});
                 });
             });
         }

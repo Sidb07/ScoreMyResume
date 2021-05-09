@@ -1,0 +1,9 @@
+<%- include ("partials/header")%>
+  <div class="jumbotron" style="padding:40px;">
+    <form action="upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="filetoupload" accept=".pdf"><br>
+        <button type='submit' class="btn btn-primary btn-lg">Choose PDF</button>
+    </form>
+    <h6 style="color :red; "> <%= error%> </h6>  
+  </div>
+<%- include ("partials/footer")%>
